@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+        .container{
+            background: no-repeat center/cover url('https://wallpaperaccess.com/full/6549944.png');
+            font-family: 'Rubik Moonrocks';
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            width:100vw;
+            height:100vh;
+            font-size: 100px;
+            color:rgb(233, 192, 8);
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        0%
+    </div>
+    <script>
+        const container = document.querySelector(".container");
+
+        let sayac = 0;
+
+        let  timer = setInterval(() => {
+            sayac++;
+
+            if(sayac>99){
+                clearInterval(timer);
+            }
+            console.log(sayac)
+            container.innerHTML = `${sayac}%`;
+
+            container.style.opacity = scale(sayac,0,100,0,1)
+            
+        }, 30);
+
+        function scale(number, inMin, inMax, outMin, outMax) {
+    return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin
+        }
+
+        
+    </script>
+</body>
+</html>
